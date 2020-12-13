@@ -23,14 +23,14 @@ struct PopularResturantView: View {
             ScrollView(.horizontal) {
                 HStack(spacing: 8) {
                     ForEach(0..<5, id: \.self) { _ in
-                        HStack(spacing: 13) {
+                        HStack(spacing: 8) {
                             Image("tapas")
                                 .resizable()
-                                .frame(width: 64, height: 64)
+                                .frame(width: 60, height: 60)
                                 .background(Color.gray)
-                                .padding(.horizontal, 6)
-                                .padding(.top, 6)
-                                .padding(.bottom, 6)
+                                .padding(.leading, 6)
+                                .padding(.vertical, 6)
+                            
                             VStack(alignment: .leading) {
                                 Text("Japans Finest Tapas")
                                 
@@ -42,9 +42,9 @@ struct PopularResturantView: View {
 
                                 Text("Tokyo, Japan")
                             }.font(.system(size: 12, weight: .semibold))
-                            
+                            Spacer()
                         }
-                            .frame(width: 240)
+                        .frame(width: 240)
                         .background(Color(.init(white: 0.9, alpha: 1)))
                             .cornerRadius(4)
                     }
