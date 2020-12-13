@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct TrendingCreators: View {
+    
+    let creators: [Creator] = [
+        .init(name: "Ammy", lastName: "Adams", imageName: "sam"),
+        .init(name: "Sam", lastName: "Smith", imageName: "billy"),
+        .init(name: "Billy", lastName: "Childs", imageName: "amy")
+    ]
+    
     var body: some View {
         
         VStack {
@@ -25,13 +32,20 @@ struct TrendingCreators: View {
 
                 HStack(spacing: 8) {
                     
-                    ForEach(0..<5 ,id: \.self) { _ in
+                    ForEach(creators ,id: \.self) { creator in
                         VStack {
-                            Spacer()
+                            Image("\(creator.imageName)")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill
+                                )
                                 .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .background(Color.gray)
-                                .cornerRadius(.infinity)
+                                .cornerRadius(25)
                                 .shadow(color: .gray, radius: 3, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 2)
+                            Text("\(creator.name)")
+                                .font(.system(size: 14, weight: .medium))
+                            Text("\(creator.lastName)")
+                                .font(.system(size: 14, weight: .medium))
                         }
                     }
                 }
